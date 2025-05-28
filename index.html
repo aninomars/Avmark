@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inam Wayiza - ICT Professional & Boxer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* This ensures proper offset for sticky nav */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background-color: #ffffff20;
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff80;
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 80px; /* Fixed height for consistent offset */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            height: 100%;
+            align-items: center;
+        }
+
+        nav li {
+            margin: 0 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item strong {
+            width: 80px;
+            color: #667eea;
+        }
+
+        .boxing-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .boxing-img {
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff20;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff80;
+            overflow: hidden;
+        }
+
+        .boxing-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            position: absolute;
+            left: 15px;
+            top: 35px;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        /* Languages Section */
+        .languages {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .language-level {
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 100px; /* Adjust for mobile nav height */
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            nav {
+                height: auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            nav li {
+                margin: 5px 0;
+            }
+
+            .languages {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">
+                <img alt='Inam Wayiza Image' src='https://media.licdn.com/dms/image/v2/D4D22AQHBqjUHYZFJig/feedshare-shrink_800/B4DZbcXG9RHEAk-/0/1747453769298?e=1751500800&v=beta&t=6kHYKoUVOqwDKVGgVIz46nRHBVjf3PGgOGWjI5mOgeA'>
+            </div>
+            <h1>Inam Wayiza</h1>
+            <p class="subtitle">ICT Professional & Aspiring Boxer</p>
+            <p class="bio">
+                Passionate ICT professional eager to learn and gain both theoretical and practical experience 
+                in support services. Committed to contributing innovative solutions for today and the future, 
+                while pursuing excellence in boxing at Walter Sisulu University.
+            </p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <div class="contact-info">
+                        <h3 style="margin-bottom: 20px; color: #333;">Contact Information</h3>
+                        <div class="contact-item">
+                            <strong>Phone:</strong>
+                            <span>063 229 9600</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <span>wayizainam20@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Address:</strong>
+                            <span>35299 Phase 1, Scenery Park, East London, Eastern Cape, 5247</span>
+                        </div>
+                    </div>
+                    
+                    <div class="boxing-highlight">
+                        <div class="boxing-img">
+                            <img alt='Inam Wayiza Boxing Team Image' src='https://mail.google.com/mail/u/0?ui=2&ik=d411d31d50&attid=0.1&permmsgid=msg-a:r8482975444935992061&th=19711adb535271fd&view=att&disp=safe&realattid=19711ad7d1be89bcac1&zw'>
+                        </div>
+                        <h3>WSU Boxing Team</h3>
+                        <p>Proud member of the Walter Sisulu University Boxing Team, combining athletic excellence with academic achievement.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 20px; color: #333;">Education</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022 - 2024</div>
+                        <div class="timeline-title">Diploma in ICT Support Services</div>
+                        <div class="timeline-company">Walter Sisulu University</div>
+                        <p>Comprehensive program covering technical support, system administration, and innovative ICT solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">MS</div>
+                    <h3>Microsoft Office</h3>
+                    <p>Proficient in Word, Excel, PowerPoint, and Outlook for productivity and data management.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">DA</div>
+                    <h3>Data Analysis</h3>
+                    <p>Skilled in analyzing and interpreting data to drive informed decision-making.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">CS</div>
+                    <h3>Communication Skills</h3>
+                    <p>Excellent verbal and written communication abilities for effective collaboration.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">TC</div>
+                    <h3>Team Coordination</h3>
+                    <p>Strong leadership and coordination skills for managing team projects.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">DS</div>
+                    <h3>Desktop Support</h3>
+                    <p>Technical expertise in troubleshooting and maintaining computer systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">12 months - Current</div>
+                    <div class="timeline-title">Microsoft Cybersecurity Internship</div>
+                    <div class="timeline-company">TWKB Talent Centric</div>
+                    <p>Gaining hands-on experience in cybersecurity practices, threat analysis, and security protocol implementation.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024 - November 2024</div>
+                    <div class="timeline-title">Software Installation Assistant</div>
+                    <div class="timeline-company">Walter Sisulu University</div>
+                    <p>Assisted with software deployment, system configuration, and technical support for university systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>Microsoft Azure Fundamentals</h3>
+                    <p>Certified in cloud computing fundamentals and Azure services.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Nemisa Mobile Digital Literacy</h3>
+                    <p>Completed comprehensive mobile technology and digital literacy program.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Power BI Exodus Experts</h3>
+                    <p>Advanced certification in business intelligence and data visualization.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Cisco CCNAv7</h3>
+                    <p>Networking fundamentals and Cisco technologies certification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages">
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages">
+                <div class="language-item">
+                    <h3>English</h3>
+                    <div class="language-level">Advanced</div>
+                </div>
+                <div class="language-item">
+                    <h3>IsiXhosa</h3>
+                    <div class="language-level">Advanced</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Inam Wayiza. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Additional JavaScript to ensure navigation works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = targetSection.offsetTop - navHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
